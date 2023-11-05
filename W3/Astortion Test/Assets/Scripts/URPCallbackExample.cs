@@ -10,6 +10,7 @@ public class URPCallbackExample : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private Transform cams;
     [SerializeField] private Transform quad;
+    [SerializeField] private Transform layer;
 
     [SerializeField] private Vector2 parallaxScale;
     
@@ -35,24 +36,49 @@ public class URPCallbackExample : MonoBehaviour
             float oldCamZ = camera.transform.localPosition.z;
             float quadOldZ = quad.localPosition.z;
 
-            Vector2 workingParallax = parallaxScale - Vector2.one;
-            
             Vector2 mainPos = cams.transform.position;
             
-            mainPos += Vector2.Scale(mainPos, workingParallax);
-
+            mainPos += Vector2.Scale(mainPos, parallaxScale-Vector2.one);
+            // layer.transform.position = mainPos;
+            
+            // mainPos = cams.transform.position;
             Vector2 roundedPos = RoundVec(mainPos);
             Vector2 newPos = roundedPos - mainPos;
 
             mainPos += newPos;
             
             Vector3 ret = mainPos;
+            // Vector3 ret = newPos;
             ret.z = oldCamZ;
             camera.transform.position = ret;
             
             Vector3 quadPos = newPos;
             quadPos.z = quadOldZ;
             quad.localPosition = quadPos;
+            
+            // float oldCamZ = camera.transform.localPosition.z;
+            // float quadOldZ = quad.localPosition.z;
+            //
+            // Vector2 mainPos = cams.transform.position;
+            //
+            // mainPos += Vector2.Scale(mainPos, parallaxScale);
+            // // layer.transform.position = mainPos;
+            //
+            // // mainPos = cams.transform.position;
+            // Vector2 roundedPos = RoundVec(mainPos);
+            // Vector2 newPos = roundedPos - mainPos;
+            //
+            // mainPos += newPos;
+            //
+            // // Vector3 ret = mainPos;
+            // Vector3 ret = newPos;
+            // ret.z = oldCamZ;
+            // // camera.transform.position = ret;
+            // camera.transform.localPosition = ret;
+            //
+            // Vector3 quadPos = newPos;
+            // quadPos.z = quadOldZ;
+            // quad.localPosition = quadPos;
         }
     }
     
