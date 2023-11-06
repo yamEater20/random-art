@@ -13,6 +13,8 @@ public class URPCallbackExample : MonoBehaviour
     [SerializeField] private Transform layer;
 
     [SerializeField] private Vector2 parallaxScale;
+
+    [SerializeField] private bool pixelate = true;
     
     // Unity calls this method automatically when it enables this component
     private void OnEnable()
@@ -33,22 +35,27 @@ public class URPCallbackExample : MonoBehaviour
     {
         if (camera == cam)
         {
+            Vector2 mainPos = cams.transform.position;
+            
+            if (!pixelate)
+            {
+                layer.transform.position = new Vector3(500, 0, layer.transform.position.z) - (Vector3) Vector2.Scale(mainPos, parallaxScale);
+                return;
+            }
+            
+            layer.transform.position = new Vector3(0, 0, layer.transform.position.z);
+            
             float oldCamZ = camera.transform.localPosition.z;
             float quadOldZ = quad.localPosition.z;
 
-            Vector2 mainPos = cams.transform.position;
-            
             mainPos += Vector2.Scale(mainPos, parallaxScale-Vector2.one);
-            // layer.transform.position = mainPos;
             
-            // mainPos = cams.transform.position;
             Vector2 roundedPos = RoundVec(mainPos);
             Vector2 newPos = roundedPos - mainPos;
 
             mainPos += newPos;
             
             Vector3 ret = mainPos;
-            // Vector3 ret = newPos;
             ret.z = oldCamZ;
             camera.transform.position = ret;
             
