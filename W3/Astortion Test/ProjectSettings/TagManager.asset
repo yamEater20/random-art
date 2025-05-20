@@ -41,12 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Orange
+  - name: City
     uniqueID: 1212987757
     locked: 0
-  - name: Blue
+  - name: Tall
     uniqueID: 3846239369
     locked: 0
-  - name: Green
+  - name: Mid
     uniqueID: 1071440125
+    locked: 0
+  - name: Fore
+    uniqueID: 3983395711
+    locked: 0
+  - name: Bridge
+    uniqueID: 1475795149
     locked: 0

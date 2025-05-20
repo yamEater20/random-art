@@ -66,3 +66,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+Dagger City/AAA/Dagger City AAA*.png
+Dagger City/Main Loop/Dagger City Main Loop*.png
+Dagger City/Off Loop/Dagger City Off*.png
