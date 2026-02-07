@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #202020">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallpaper</title>
+</head>
+<script src="js/main.js" type="module"></script>
+
+<body id="body">
+    <div id="container"></div>
+</body>
+
+<style>
+    img {
+        image-rendering: pixelated;
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        position: absolute;
+    }
+
+    body {
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #container {
+        position: relative;
+    }
+</style>
+
+</html>
